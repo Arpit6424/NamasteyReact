@@ -1,0 +1,30 @@
+
+
+# Parcel
+- Dev Build
+- Local Server
+- HMR = Hot Module Replacement
+- Parcel use File Watching Algorithm which is written in C++
+
+- Caching - Faster Builds
+- Image optimization
+- Minification
+- Bundling
+- Compress
+- Consistent Hashing
+- Code splitting
+- Differential Bundling
+- Diagnostic
+- Error Handling
+- Tree Shaking
+- Different dev and production bundles
+
+
+browerlis
+
+- if you write "last 2 version of chrome"
+then your website must be work in last 2 version of chrome
+ by this your website is become faster because it will create extra bundles
+
+
+

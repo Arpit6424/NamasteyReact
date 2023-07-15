@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 //parent is the object(React Element) , it is not the html tag
 const parent = React.createElement(
   "div",
@@ -20,7 +23,7 @@ const root1 = ReactDOM.createRoot(document.getElementById("root1"));
 
 console.log(heading);
 
-//this will replace the root with parent ,if there is already data is present in root it will replace it 
+//this will replace the root with parent ,if there is already data is present in root it will replace it
 root.render(parent);
 // root.render(heading);
 console.log(root);

@@ -1,29 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//parent is the object(React Element) , it is not the html tag
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I'm am h1 tag!"), //we have mmore than 1 sibling
-    React.createElement("h2", {}, "I'm am h2 tag!"),
-  ])
+//Recat.createElement => object => HTMLElement(render)
+const heading = React.createElement("h1", {}, "heading");
+
+//JSX - is not HTML in JS
+// JSX - is HTML/XML like syntax
+//parcel transpile JSX code before it reach to JS engine
+//parcel also does not transpile but parcel gives to babel to done this job
+
+//First JSX convert to React.createElement then this React.createElement(object ) render and converted to HTMlelement
+
+//if there are multiple line in JSX then it is mandotary to use (). inside round bracket you have to write JSX
+const jsxHeading = <h1 className="heading">Namastey React using JSX</h1>;
+
+// React component
+// Class Based Component - Old
+// Functional Component - New
+
+//A function which returns a JSX is known as componet
+// or a function which return a react element is knowm as a component
+
+const HeadingComponet = () => (
+  <>
+    <>
+      {Title}
+      <h1>Namastey React Functional Component</h1>
+    </>
+  </>
 );
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello world from React! headin"
-);
+const Title = <h1>Title</h1>;
 
-//in this is we are passing the object
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const root1 = ReactDOM.createRoot(document.getElementById("root1"));
-
-console.log(heading);
-
-//this will replace the root with parent ,if there is already data is present in root it will replace it
-root.render(parent);
-// root.render(heading);
-console.log(root);
+root.render(<HeadingComponet />);

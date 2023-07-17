@@ -1,0 +1,71 @@
+if we want to make shortcurt to run or build our project then change in script in json file
+
+"scripts": {
+"test": "jest",
+"start": "parcel index.html",
+"build": "parcel build index.html"
+},
+
+- just write npm run start or nmp start to run in development mode
+
+- just write npm run build for production build
+
+//Recat.createElement => object => HTMLElement(render)
+
+//JSX - is not HTML in JS
+// JSX - is HTML/XML like syntax
+//parcel transpile JSX code before it reach to JS engine
+//parcel also does not transpile but parcel gives to babel to done this job
+
+//First JSX convert to React.createElement then this React.createElement(object ) render and converted to HTMlelement
+
+//if there are multiple line in JSX then it is mandotary to use (). inside round bracket you have to write JSX
+
+// React component
+// Class Based Component - Old
+// Functional Component - New
+
+//A function which returns a JSX is known as componet
+// or a function which return a react element is knowm as a component
+
+Q - What is component Composition
+
+- Componet inside another componet is known as component composition
+
+we can also declare as normal JS function
+const Title = function () {
+return <h1>Title</h1>;
+};
+
+- you can write any JS code inside JSX by using {}
+- if can call Title function inside a component {Title()}
+
+- Different way to call component/function
+{Title()}
+<Title/>
+<Title> </Titel>
+
+-JSX can have only one parent element
+
+- React Fragment
+- if you dont want to use use div or other componet as parent you can use
+- Recat Fragement behave like empty tag
+  <React.Frament>
+  .
+  //other code
+  .
+  </React.Fragement>
+
+  -other way
+  -just write,JSX provide empty tag it is another way to write React Fragment
+  <>
+  .
+  //other code
+  .
+  </>
+
+  we can write fragment inside fragment
+  <>
+  <>
+  </>
+  </>

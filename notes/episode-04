@@ -1,0 +1,14 @@
+- when we use map in react always put key on it,
+  beacause if you dont give key it will render all the item again beacause react could not find which item is added just now, by the unique key it will find and render it only
+
+-We should not use index as key in react
+
+- use unique (best practice)
+- use index as key (ok practice)
+- donot use key (bad practice)
+
+but try to use unique id but id is not index
+
+-Config-Driven UI (User Interface): A config-driven UI refers to a user interface design approach where the appearance, behavior, and layout of the user interface elements are primarily controlled and customized through configuration files or settings, separate from the application's source code. This allows developers and sometimes non-technical users to modify the UI's properties, styles, and functionalities without the need to change the underlying codebase.
+
+-CDN stands for Content Delivery Network. It is a network of geographically distributed servers that work together to deliver web content and other digital assets to users based on their location. The primary purpose of a CDN is to improve the performance, reliability, and scalability of delivering content over the internet.

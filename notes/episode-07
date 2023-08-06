@@ -1,0 +1,137 @@
+/*
+HomeWork - why we write super(props) in class
+
+Reason - We cant use this if wer dont call super()
+
+class Checkbox extends React.Component {
+  constructor(props) {
+    // 🔴 Can’t use `this` yet
+    super(props);
+    // ✅ Now it’s okay though
+    this.state = { isOn: true };
+  }
+  // ...
+}
+
+if we only call super() without props inside it so we cant call this.props
+
+seond example
+
+// Inside React
+class Component {
+  constructor(props) {
+    this.props = props;
+    // ...
+  }
+}
+
+// Inside your code
+class Button extends React.Component {
+  constructor(props) {
+    super(); // 😬 We forgot to pass props
+    console.log(props);      // ✅ {}
+    console.log(this.props); // 😬 undefined 
+  }
+  // ...
+}
+
+
+-Never update state variables directly in class components
+
+ex this.state.count = this.state.count + 1; // never do that
+
+
+Lifecycle
+
+-  Parent Constructor
+- Parent Render
+- Child Contructor
+- Child Render
+- Child ComponentDidMount
+- Parent ComponentDidMount
+
+
+Component LifeCycle with ComponentDidMount
+parent constructor
+parent render
+  First Child constructor
+  First Child render
+    SuperUse First Child super constructor
+    SuperUser First Child super render
+  Second Child constructor 
+  Second Child render
+    Second Child super constructor
+    Second Child super render
+
+ First Child super componentDidMount
+ First Child componentDidMount
+ Second Child super componentDidMount
+ Second Child componentDidMount
+ parent componentDidMount
+
+
+and for componentwillUnmount all the above is same 
+
+ parent componentWillUnmount
+  First Child componentWillUnmount
+   First Child super componentWillUnmount
+  Second Child componentWillUnmount
+   Second Child super componentWillUnmount
+
+
+
+
+- Use of componentWillUnmount
+-- The componentWillUnmount is used for cleanup (like removing event listeners, canceling the timer etc). Assume you’re adding an event listener in componentDidMount and removing it in componentWillUnmount 
+
+
+componentDidMount() {
+  window.addEventListener('mousemove', () => { })
+    this.timerID = setInterval(() => {
+      this.tick();
+    }, 1000);//if we donot clean it, it will trigger rven after the component unmounted
+}
+ 
+componentWillUnmount() {
+  window.removeEventListener('mousemove', () => { })
+   clearInterval(this.timerID);
+}
+
+
+same thing can we use in useEffect hooks also
+
+    useEffect(() => {
+    
+        window.addEventListener('mousemove', () => { })
+        this.timerID = setInterval(() => {
+            this.tick();
+        }, 1000);
+
+
+        --here we return the function that will called just before the componet is about to unomounted
+        return () => {
+         window.removeEventListener('mousemove', () => { })
+         clearInterval(this.timerID);
+           
+        }
+    }, [])
+
+
+ Q--why we cant use async in useEffect 
+
+ because useEffect aspect the first argument should the function or nothing(undefine )
+ first argument function because to clean up memory we have seen use of functiom above 
+
+
+
+Q--async in componentDidMount
+-- We can use async i componentDidMount beacuse it will to stop one extra re-rendering 
+
+
+super(props)
+constuctor(props)
+
+
+*/
+
+

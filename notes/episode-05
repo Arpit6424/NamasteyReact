@@ -1,0 +1,57 @@
+/*
+-Read file structure on google
+
+- There are two types of import/export
+
+1-Default Export/Import
+///this is useful when have to export single file/component
+
+ex- export default ComponantName/variavle name
+import ComponantName/variavle from "path"
+
+2-Named Export/Import
+
+export const ComponantName/variavle
+
+you can put export in front of each variable or int the end just write export { var1, var2, varn };
+import {ComponantName/variavle} from "path"
+
+
+# React Hooks
+- Normal JavaScript utility Function
+
+- useState() - Superpowerful State Variables in react
+- useEffect()
+
+--Whenever the state variable get  changed react re-renders the components
+
+
+-Reconciliation Alogorithm(React Fiber)
+
+--Virtual DOM is representatio of Real/Actual DOM
+
+--In react 16 New algorithm React FIber comes which is used to find the difference and update the UI
+ -- Diff Algorithm
+
+
+ --Whenever state variable get changed/update,react trigger a Reconciliation cycle(re-render the component) 
+
+
+--Server Side Routing
+--Client Side Routing
+
+Link vs onClick
+params
+useRouteError
+
+
+
+
+
+
+
+
+
+
+
+*/

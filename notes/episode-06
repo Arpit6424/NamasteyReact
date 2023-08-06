@@ -1,0 +1,13 @@
+
+--Always write useState in the top of the function 
+--Never write useState in the outside of the function
+
+--Never write useState inside the if/else conditio
+--Never write useState inside loop or function
+ex.
+function(){
+    useState()//Never do that
+}
+
+
+--useRouterError hooks, you will get more error information if error occurs in cases like path not found

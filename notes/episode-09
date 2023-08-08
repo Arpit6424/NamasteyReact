@@ -1,0 +1,47 @@
+/*
+
+In this episode we have lerant custom hooks and lazy loading
+
+Q.What is Custom hooks
+--A custom hook in React is a JavaScript function that  encapsulates reusable logic and stateful behavior  allowing functional
+ components to share and manage state, side effects, or other functionalities without duplicating code. Custom hooks follow the 
+ naming convention of starting with the prefix "use" and leverage existing built-in hooks to provide modular and maintainable
+  solutions to specific use cases in React applications
+
+
+
+Q. What is Lazy Loading
+--some other name
+-Chunking
+-Code Splitting
+-Dynamic Bundling
+-Lazy Loading
+-On Demand Loading
+-Dynamic Import
+
+--Lazy loading(also called on-demand loading) is used to optimize react app. It load the data which is required for now
+  and whenerver the data is requird it loaded it.
+  import React, { lazy, Suspense } from 'react';
+
+const LazyComponent = lazy(() => import('./LazyComponent'));
+
+function App() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyComponent />
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+Q. Chunking 
+-- Chunking primarily refers to the process of splitting your application's JavaScript code into smaller, separate files called chunks. This is achieved through a technique known as "code splitting." Code splitting allows you to load only the JavaScript code that is required for a specific part of your application, rather than loading the entire application's code upfront. This can lead to faster initial page loads and better performance for your React application.
+
+React provides a built-in mechanism for code splitting using dynamic imports or the React.lazy() function, which enables you to load components lazily, i.e., only when they are actually needed.
+
+*/

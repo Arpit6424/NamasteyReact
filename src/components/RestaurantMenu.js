@@ -1,27 +1,22 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestrauntMenu";
 
 const RestaurantMenu = () => {
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  const { resId } = useParams();
 
-  const fetchMenu = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/restaurants/mcdonalds-marunji-road-hinjawadi-pune-23716"
-    );
-    const data = await response.json();
-    console.log(data);
-  };
+  const resInfo = useRestaurantMenu(resId);
+
+  if (resInfo == null) return <div></div>;
+
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[0]?.card?.card?.info;
 
   return (
     <div className="menu">
-      <h1>Name of Restaurant</h1>
-      <h2>Menu</h2>
-      <ul>
-        <li>Biryani</li>
-        <li>Burger</li>
-        <li>Diet Coke</li>
-      </ul>
+      <h1>{name}</h1>
+      <h2>{cuisines}</h2>
+      <h3>{costForTwoMessage}</h3>
     </div>
   );
 };

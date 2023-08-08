@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import RestauaantCard from "./RestaurantCard";
 
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -10,7 +11,7 @@ const Body = () => {
 
   const fetchResList = async () => {
     const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.596217&lng=73.7514631&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
 
     const list = await response.json();
@@ -26,6 +27,15 @@ const Body = () => {
   useEffect(() => {
     fetchResList();
   }, []);
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like you're offline!! Please check your internet connection.
+      </h1>
+    );
+  }
 
   return (
     <div>
@@ -58,10 +68,13 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {filterList.map((data) => {
+        {filterList?.map((restaurant) => {
           return (
-            <Link key={data.info.id}>
-              <RestauaantCard data={data} />
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant?.info.id}
+            >
+              <RestauaantCard data={restaurant} />
             </Link>
           );
         })}

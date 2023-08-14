@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
-import RestauaantCard from "./RestaurantCard";
+import RestauaantCard, { withPromtedLabel } from "./RestaurantCard";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import Greeting from "./Greeting";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [filterList, setFilterList] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
+  const RestaurantCardPromoted = withPromtedLabel(RestauaantCard);
 
   const fetchResList = async () => {
     const response = await fetch(
@@ -46,6 +52,7 @@ const Body = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
+
         <button
           className="px-4 py-2 bg-green-100 m-4 rounded-lg"
           onClick={() => {
@@ -68,6 +75,13 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        <label htmlFor="">UserName</label>
+        <input
+          className="border border-solid border-black p-2"
+          type="text"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
       <div className="flex flex-wrap">
         {filterList?.map((restaurant) => {
@@ -76,11 +90,16 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant?.info.id}
             >
-              <RestauaantCard data={restaurant} />
+              {restaurant?.info?.aggregatedDiscountInfoV3?.header ? (
+                <RestaurantCardPromoted data={restaurant} />
+              ) : (
+                <RestauaantCard data={restaurant} />
+              )}
             </Link>
           );
         })}
       </div>
+      <Greeting name="arpit" />
     </div>
   );
 };

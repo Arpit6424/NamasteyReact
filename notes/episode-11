@@ -1,0 +1,23 @@
+Higher order function: the function which takes a componet as input and return the componet
+
+-Pure function
+--accordion
+--lifting shift up
+-control and uncontrol components
+--Props Drilling
+--ways to avoid props drilling
+--React Context api
+
+## Q- Props Drilling
+
+"Props drilling" is a term used in the context of React,. It refers to the practice of passing data from a parent component down to a child component through a series of intermediate components, even if those intermediate components do not need that data themselves.
+
+Q-Lifting shift Up
+--Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up, and it’s one of the most common things you will do writing React code.
+
+Q-Controlled and Uncontrolled Component
+--In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally.
+
+## Q-Pure component(we use memo HOC in function based )
+
+In React, a "Pure Component" is a type of component that performs a shallow comparison of its props and state to determine whether it needs to re-render. If there are no changes in the props or state, a pure component will not re-render, thus optimizing the rendering process and potentially improving performance.

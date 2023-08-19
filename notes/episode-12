@@ -1,0 +1,31 @@
+-Separation of concern
+-redux vs redux toolkit
+
+- how we mutate state directly in redux(immer library used for that)
+- how to make immutable copy of object
+- RTK Query Overview(previous we use middleware and redux thunk)
+
+# Redux toolkit
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice(cartSlice)
+- dispatch(action)
+- Selector
+
+- configureStore is used to create the store in the redux/toolkit
+- Provide which comes from react-redux act as bridge between redux/toolkit store and react application store
+  Provider takes props as name store and store name {appStore}
+
+-Redux is not a part of react. Redux is defferent library it you can
+build small-medium and even large application without use of redux or other state mangemnet library.
+redux is not mandatory to use in all react appplication
+
+--Other state mangemnet library
+--Zustand
+
+--By using redux it is easy to debugg
+--we have redux dev tool in brower by which it is easy to debug
+
+- When subscribe to the store make sure you subscribe to the right portion, otherwise it will huge loss in performance.
